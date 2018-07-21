@@ -2,6 +2,7 @@ const Constants = require('../const')
 
 module.exports = {
   server: {
+    port: parseInt(process.env.SERVER_PORT, 10) || 3000,
     dungeon: {
       sizeX: parseInt(process.env.SERVER_DUNGEON_MAP_SIZE_X, 10) || Constants.SERVER_DUNGEON_DEFAULT_SIZE_X,
       sizeY: parseInt(process.env.SERVER_DUNGEON_MAP_SIZE_Y, 10) || Constants.SERVER_DUNGEON_DEFAULT_SIZE_Y,
