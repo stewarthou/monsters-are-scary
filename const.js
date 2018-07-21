@@ -12,6 +12,9 @@ const DUNGEON_DIFFICULTY_HIGH = 3
 const DUNGEON_DEFAULT_SIZE_X = 8
 const DUNGEON_DEFAULT_SIZE_Y = 8
 
+const DUNGEON_ROOM_WITH_MONSTER_STRING = 'MONSTER'
+const DUNGEON_ROOM_WITH_GOLD_STRING = 'GOLD'
+
 module.exports = {
   /**
    * Default dungeon map size X
@@ -48,5 +51,13 @@ module.exports = {
   /**
    * Dungeon room GOLD
    */
-  DUNGEON_ROOM_WITH_GOLD: DUNGEON_ROOM_WITH_GOLD
+  DUNGEON_ROOM_WITH_GOLD: DUNGEON_ROOM_WITH_GOLD,
+  /**
+   * Dungeon room MONSTER in String
+   */
+  DUNGEON_ROOM_WITH_MONSTER_STRING: DUNGEON_ROOM_WITH_MONSTER_STRING,
+  /**
+   * Dungeon room GOLD in String
+   */
+  DUNGEON_ROOM_WITH_GOLD_STRING: DUNGEON_ROOM_WITH_GOLD_STRING
 }
