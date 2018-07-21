@@ -20,7 +20,7 @@ describe('dungeon-model tests', () => {
   it('should have correct config for testing environment', () => {
     expect(VALID_MAP_SIZE_X).to.equal(4)
     expect(VALID_MAP_SIZE_Y).to.equal(4)
-    expect(VALID_DUNGEON_DIFFICULTY).to.equal(1)
+    expect(VALID_DUNGEON_DIFFICULTY).to.equal(2)
   })
   describe('Module structure tests', () => {
     it('should have private function _generateMap(sizeX, sizeY, difficulty)', () => {
