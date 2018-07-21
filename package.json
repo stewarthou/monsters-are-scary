@@ -6,7 +6,9 @@
   "scripts": {
     "lint": "standard",
     "test": "NODE_ENV=test mocha",
-    "start-server": "SERVER_DUNGEON_MAP_SIZE_X=8 SERVER_DUNGEON_MAP_SIZE_Y=8 SERVER_DUNGEON_DIFFICULTY=2 node ./server/server.js"
+    "start-server": "SERVER_DUNGEON_MAP_SIZE_X=8 SERVER_DUNGEON_MAP_SIZE_Y=8 SERVER_DUNGEON_DIFFICULTY=2 node ./server/server.js",
+    "test-cover": "NODE_ENV=test istanbul cover _mocha",
+    "coverage-http": "http-server ./coverage/lcov-report"
   },
   "author": "Yunzhi Hou",
   "license": "ISC",
@@ -15,6 +17,8 @@
   },
   "devDependencies": {
     "chai": "^4.1.2",
+    "http-server": "^0.11.1",
+    "istanbul": "^0.4.5",
     "mocha": "^5.2.0",
     "node-mocks-http": "^1.7.0",
     "standard": "^11.0.1"
