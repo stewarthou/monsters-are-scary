@@ -32,16 +32,6 @@ describe('dungeon-controller tests', () => {
       // All invalid request should return following
       // status code: 400
 
-      // Mockups
-      // dungeonController = {
-      //   getRoom: (req, res) => {
-      //     res.header("Content-Type", "text/plain")
-      //     res.send('GOLD')
-      //     res.status(400)
-      //     res.send()
-      //   }
-      // }
-
       dungeonController = DungeonController.create(config)
 
       validRequest = httpMocks.createRequest({

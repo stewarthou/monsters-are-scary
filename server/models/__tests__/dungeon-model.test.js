@@ -39,12 +39,6 @@ describe('dungeon-model tests', () => {
         // The key is constructed with template 'x,y'
         // The value is either DUNGEON_ROOM_EMPTY, DUNGEON_ROOM_WITH_MONSTER or DUNGEON_ROOM_WITH_GOLD
 
-        // Mockups
-        // dungeonMap = {}
-        // dungeonMap['0,0'] = Constants.DUNGEON_ROOM_EMPTY
-        // dungeonMap['0,1'] = Constants.DUNGEON_ROOM_WITH_MONSTER
-        // dungeonMap['0,2'] = Constants.DUNGEON_ROOM_WITH_GOLD
-
         dungeonMap = DungeonModel._private.generateMap(VALID_MAP_SIZE_X, VALID_MAP_SIZE_Y, VALID_DUNGEON_DIFFICULTY)
 
         // Map should have size larger than 1 x 1
@@ -82,16 +76,6 @@ describe('dungeon-model tests', () => {
     before(() => {
       // A dungeon is an object looks like below
       // getRoomContent() function will return 4 different values (as shown below) depends on x and y
-
-      // Mockups
-      // dungeon = {
-      //   getRoomContent: (x, y) => {
-      //     return Constants.DUNGEON_ROOM_EMPTY
-      //     return Constants.DUNGEON_ROOM_WITH_MONSTER
-      //     return Constants.DUNGEON_ROOM_WITH_GOLD
-      //     return undefined
-      //   }
-      // }
 
       dungeon = DungeonModel.create(VALID_MAP_SIZE_X, VALID_MAP_SIZE_Y, VALID_DUNGEON_DIFFICULTY)
     })
