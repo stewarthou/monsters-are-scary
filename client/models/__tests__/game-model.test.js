@@ -20,7 +20,7 @@ const MOCK_PATH_ROOM_0_4 = '/room/0/4' // This is an invalid room for a 4 x 4 ma
 const MOCK_PATH_ROOM_1_3 = '/room/1/3'
 const MOCK_PATH_ROOM_1_2 = '/room/1/2'
 
-describe('game-model tests', () => {
+describe.only('game-model tests', () => {
   it('should have correct config for testing environment', () => {
     expect(VALID_PLAYER_HEALTH).to.equal(5)
   })
@@ -120,56 +120,56 @@ describe('game-model tests', () => {
       expect(player.y, 'Player should at y 0').to.equal(0)
       expect(player.gold, 'Player should NOT have any Gold').to.equal(0)
     })
-    it('should move player around on the map', () => {
+    it('should move player around on the map', async () => {
       // This test will simulate movements as following
       // East -> East -> East -> East -> North -> West -> South
       // As a result, the game client will try to move player as following
       // 0,0 -> 0,1 -> 0,2 -> 0,3 -> 0,4 (Invalid, stay at 0,3) -> 1,3 -> 1,2 -> 0,2
 
       // Moving EAST
-      let player = game.move(Constants.DIRECTION_EAST)
+      let player = await game.move(Constants.DIRECTION_EAST)
       // Gold o(*￣▽￣*)o
       expect(player.health, 'Player should have 5 health').to.equal(5)
       expect(player.x, 'Player should at x 0').to.equal(0)
       expect(player.y, 'Player should at y 1').to.equal(1)
       expect(player.gold, 'Player should earn a Gold').to.equal(1)
       // Moving EAST
-      player = game.move(Constants.DIRECTION_EAST)
+      player = await game.move(Constants.DIRECTION_EAST)
       // Monster (╯°Д°)╯︵ ┻━┻
       expect(player.health, 'Player should lose 1 health').to.equal(4)
       expect(player.x, 'Player should at x 0').to.equal(0)
       expect(player.y, 'Player should at y 1').to.equal(2)
       expect(player.gold, 'Player should have 1 Gold').to.equal(1)
       // Moving EAST
-      player = game.move(Constants.DIRECTION_EAST)
+      player = await game.move(Constants.DIRECTION_EAST)
       // Monster
       expect(player.health, 'Player should lose 1 health').to.equal(3)
       expect(player.x, 'Player should at x 0').to.equal(0)
       expect(player.y, 'Player should at y 3').to.equal(3)
       expect(player.gold, 'Player should have 1 Gold').to.equal(1)
       // Moving EAST
-      player = game.move(Constants.DIRECTION_EAST)
+      player = await game.move(Constants.DIRECTION_EAST)
       // Wall, so stay at 0,3
       expect(player.health, 'Player should have 3 health').to.equal(3)
       expect(player.x, 'Player should at x 0').to.equal(0)
       expect(player.y, 'Player should at y 3').to.equal(3)
       expect(player.gold, 'Player should have 1 Gold').to.equal(1)
       // Moving NORTH
-      player = game.move(Constants.DIRECTION_NORTH)
+      player = await game.move(Constants.DIRECTION_NORTH)
       // Gold
       expect(player.health, 'Player should have 3 health').to.equal(3)
       expect(player.x, 'Player should at x 1').to.equal(1)
       expect(player.y, 'Player should at y 3').to.equal(3)
       expect(player.gold, 'Player should earn another Gold').to.equal(2)
       // Moving WEST
-      player = game.move(Constants.DIRECTION_WEST)
+      player = await game.move(Constants.DIRECTION_WEST)
       // Monster
       expect(player.health, 'Player should lose 1 health').to.equal(2)
       expect(player.x, 'Player should at x 1').to.equal(1)
       expect(player.y, 'Player should at y 2').to.equal(2)
       expect(player.gold, 'Player should have 2 Gold').to.equal(2)
       // Moving SOUTH
-      player = game.move(Constants.DIRECTION_SOUTH)
+      player = await game.move(Constants.DIRECTION_SOUTH)
       // Visted before, empty room
       expect(player.health, 'Player should have 2 health').to.equal(2)
       expect(player.x, 'Player should at x 0').to.equal(0)
