@@ -7,5 +7,9 @@ module.exports = {
       sizeY: 4,
       difficulty: Constants.SERVER_DUNGEON_DEFAULT_DIFFICULTY
     }
+  },
+  client: {
+    serverUrl: 'http://yourstubserver',
+    playerHealth: 5
   }
 }

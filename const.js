@@ -15,6 +15,10 @@ const DUNGEON_DEFAULT_SIZE_Y = 8
 const DUNGEON_ROOM_WITH_MONSTER_STRING = 'MONSTER'
 const DUNGEON_ROOM_WITH_GOLD_STRING = 'GOLD'
 
+// Directions
+
+const [EAST, NORTH, WEST, SOUTH] = ['EAST', 'NORTH', 'WEST', 'SOUTH']
+
 module.exports = {
   /**
    * Default dungeon map size X
@@ -59,5 +63,21 @@ module.exports = {
   /**
    * Dungeon room GOLD in String
    */
-  DUNGEON_ROOM_WITH_GOLD_STRING: DUNGEON_ROOM_WITH_GOLD_STRING
+  DUNGEON_ROOM_WITH_GOLD_STRING: DUNGEON_ROOM_WITH_GOLD_STRING,
+  /**
+   * Direction EAST
+   */
+  DIRECTION_EAST: EAST,
+  /**
+   * Direction NORTH
+   */
+  DIRECTION_NORTH: NORTH,
+  /**
+   * Direction WEST
+   */
+  DIRECTION_WEST: WEST,
+  /**
+   * Direction SOUTH
+   */
+  DIRECTION_SOUTH: SOUTH
 }
