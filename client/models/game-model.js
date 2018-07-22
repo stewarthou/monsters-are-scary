@@ -92,6 +92,7 @@ function create (playerHealth, gameServerUrl, fetchLib) {
                 debug('Collected a Gold')
                 // Gold
                 player.gold++
+                break
               default:
                 break
             }
