@@ -52,6 +52,11 @@ function create (playerHealth, gameServerUrl, fetchLib) {
       return player
     }
     const movePlayer = async direction => {
+      const result = {
+        isMoved: false,
+        isVisited: false,
+        isMonster: false
+      }
       debug('Direction', direction)
       const { nextX, nextY } = _calculateNextRoomByCurrentRoomAndDirection(player.x, player.y, direction)
       debug(`Next room ${nextX}, ${nextY}`)
@@ -67,6 +72,10 @@ function create (playerHealth, gameServerUrl, fetchLib) {
         // Do NOT change number of Gold
         player.x = nextX
         player.y = nextY
+
+        result.isMoved = true
+        result.isVisited = true
+        result.isMonster = false
       } else {
         // Call game server to get content of room
         const roomUrl = `${gameServerUrl}/room/${nextX}/${nextY}`
@@ -80,6 +89,8 @@ function create (playerHealth, gameServerUrl, fetchLib) {
             player.x = nextX
             player.y = nextY
             player.visitedRooms.push(keyForVisitedRoom)
+            result.isMoved = true
+            result.isVisited = false
             // Kill monster or collect gold
             const contentOfRoom = await response.text()
             switch (contentOfRoom) {
@@ -87,24 +98,30 @@ function create (playerHealth, gameServerUrl, fetchLib) {
                 debug('Killed a Monster')
                 // Monster
                 player.health--
+                result.isMonster = true
                 break
               case Constants.DUNGEON_ROOM_WITH_GOLD_STRING:
                 debug('Collected a Gold')
                 // Gold
                 player.gold++
+                result.isMonster = false
                 break
               default:
                 break
             }
           } else {
             debug('Hit a Wall')
+            result.isMoved = false
+            result.isVisited = false
+            result.isMonster = false
           }
         } catch (error) {
           console.error('Could not connect to Game Server, error', error)
         }
       }
       debug('current player', player)
-      return player
+      result.player = player
+      return result
     }
     game = {
       getPlayer: getPlayer,
