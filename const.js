@@ -19,6 +19,9 @@ const DUNGEON_ROOM_WITH_GOLD_STRING = 'GOLD'
 
 const [EAST, NORTH, WEST, SOUTH] = ['EAST', 'NORTH', 'WEST', 'SOUTH']
 
+// Status code for game controller
+const [VALID_COMMAND, INVALID_COMMAND, PLAYER_DIED] = [1, 2, 3]
+
 module.exports = {
   /**
    * Default dungeon map size X
@@ -79,5 +82,17 @@ module.exports = {
   /**
    * Direction SOUTH
    */
-  DIRECTION_SOUTH: SOUTH
+  DIRECTION_SOUTH: SOUTH,
+  /**
+   * Controller status: valid command received
+   */
+  STATUS_VALID_COMMAND: VALID_COMMAND,
+  /**
+   * Controller status: invalid command received
+   */
+  STATUS_INVALID_COMMAND: INVALID_COMMAND,
+  /**
+   * Controller status: game over
+   */
+  STATUS_GAME_OVER: PLAYER_DIED
 }
