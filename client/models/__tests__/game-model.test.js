@@ -20,7 +20,7 @@ const MOCK_PATH_ROOM_0_4 = '/room/0/4' // This is an invalid room for a 4 x 4 ma
 const MOCK_PATH_ROOM_1_3 = '/room/1/3'
 const MOCK_PATH_ROOM_1_2 = '/room/1/2'
 
-describe.only('game-model tests', () => {
+describe('game-model tests', () => {
   it('should have correct config for testing environment', () => {
     expect(VALID_PLAYER_HEALTH).to.equal(5)
   })
