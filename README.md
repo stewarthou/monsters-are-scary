@@ -41,6 +41,14 @@ To make sure we can cheat in the game when we challenge friends, the number of p
 
 * `prompt` is a easy-to-use CLI library
 
+* Both game server and client are configurable via environment variables
+  * Server
+    * `SERVER_DUNGEON_MAP_SIZE_X` | map size X
+    * `SERVER_DUNGEON_MAP_SIZE_Y` | map size Y
+    * `SERVER_DUNGEON_DIFFICULTY` | dungeon difficulty, 1, 2 or 3
+  * Client
+    * `CLIENT_PLAYER_HEALTH` | Player start health
+
 
 # How to Play
 
