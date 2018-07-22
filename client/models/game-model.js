@@ -116,7 +116,8 @@ function create (playerHealth, gameServerUrl, fetchLib) {
             result.isMonster = false
           }
         } catch (error) {
-          console.error('Could not connect to Game Server, error', error)
+          debug('Could not connect to Game Server, error', error)
+          throw error
         }
       }
       debug('current player', player)

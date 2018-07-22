@@ -5,10 +5,6 @@ const Constants = require('../../const')
 function create (gameModel) {
   let gameController
   if (gameModel) {
-    // Start game
-    console.log('Game started.')
-    console.log('Acceptable commands: North(N), South(S), East(E), West(W)')
-
     const sendCommand = async command => {
       // Validate command
       const commandToDirectionMapping = {}
@@ -34,10 +30,11 @@ function create (gameModel) {
           if (moveResult.isMoved) {
             if (moveResult.isVisited) {
               console.log(`You returned room ${currentPlayerState.x}, ${currentPlayerState.y}`)
+              return Constants.STATUS_VALID_COMMAND
             } else {
               console.log(`You entered room ${currentPlayerState.x}, ${currentPlayerState.y}`)
               if (moveResult.isMonster) {
-                console.log('You encountered a Monster, lost 1 health')
+                console.log(`You encountered a Monster, lost 1 health, you have ${currentPlayerState.health} health left`)
               } else {
                 console.log('You found a Gold, earned 1 score')
               }
@@ -50,12 +47,12 @@ function create (gameModel) {
               }
             }
           } else {
-            console.log('You hit a Wall')
+            console.log(`You hit a wall, you are at room ${currentPlayerState.x}, ${currentPlayerState.y}`)
             return Constants.STATUS_VALID_COMMAND
           }
         } catch (error) {
           // Server error
-          console.error('Game Controller Error', error)
+          debug('Game Controller Error', error)
           return Constants.STATUS_SERVER_ERROR
         }
       } else {

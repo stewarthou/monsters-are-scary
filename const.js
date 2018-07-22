@@ -20,7 +20,7 @@ const DUNGEON_ROOM_WITH_GOLD_STRING = 'GOLD'
 const [EAST, NORTH, WEST, SOUTH] = ['EAST', 'NORTH', 'WEST', 'SOUTH']
 
 // Status code for game controller
-const [VALID_COMMAND, INVALID_COMMAND, PLAYER_DIED] = [1, 2, 3]
+const [VALID_COMMAND, INVALID_COMMAND, PLAYER_DIED, SERVER_ERROR] = [1, 2, 3, -1]
 
 module.exports = {
   /**
@@ -91,6 +91,10 @@ module.exports = {
    * Controller status: invalid command received
    */
   STATUS_INVALID_COMMAND: INVALID_COMMAND,
+  /**
+   * Controller status: server error
+   */
+  STATUS_SERVER_ERROR: SERVER_ERROR,
   /**
    * Controller status: game over
    */
